@@ -35,7 +35,12 @@ if (shotFiles.length < 3 || shotFiles.length > 4) {
   throw new Error(`main.ts: screenshots/ must hold 3 or 4 images, found ${shotFiles.length}`);
 }
 
-rmSync(outDir, { recursive: true, force: true });
+// Never rmSync(outDir) itself: in the grader /output is a mounted
+// volume, and rmdir on a mount point fails with EBUSY (exit code 1).
+// Clearing only the contents below keeps the mount point intact.
+rmSync(join(outDir, 'app'), { recursive: true, force: true });
+rmSync(join(outDir, 'screenshots'), { recursive: true, force: true });
+rmSync(join(outDir, 'dossier.json'), { force: true });
 mkdirSync(outDir, { recursive: true });
 cpSync(appDir, join(outDir, 'app'), { recursive: true });
 cpSync(shotsDir, join(outDir, 'screenshots'), { recursive: true });

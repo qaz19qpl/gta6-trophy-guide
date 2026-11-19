@@ -1,25 +1,116 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GTA VI trophy checklist</title>
+<title>GTA VI Trophy Guide &amp; Tracker — All 55 PS5 Trophies</title>
+<meta name="description" content="An offline guide and checklist for all 55 Grand Theft Auto VI trophies on PlayStation 5: official names, descriptions and grades, a guide with sources for each trophy, a platinum roadmap, missable flags, filters and a spoiler setting.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23ff9f43'/%3E%3Ctext x='16' y='22' font-family='sans-serif' font-size='15' font-weight='bold' text-anchor='middle' fill='%231a1206'%3EVI%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <h1>GTA VI trophy checklist</h1>
-  <p id="progress">0 of 55 earned</p>
+<header class="hero">
+  <p class="eyebrow">Grand Theft Auto VI &middot; PlayStation 5 &middot; Offline guide</p>
+  <h1>Vice City Trophy Guide</h1>
+  <p class="lede">Every one of the 55 official trophies, with its official name, description and grade, a guide in our own words with its sources, and a tracker that saves your progress in this browser.</p>
+  <dl class="totals">
+    <div><dt>Trophies</dt><dd>55</dd></div>
+    <div><dt>Platinum</dt><dd>1</dd></div>
+    <div><dt>Gold</dt><dd>2</dd></div>
+    <div><dt>Silver</dt><dd>6</dd></div>
+    <div><dt>Bronze</dt><dd>46</dd></div>
+    <div><dt>Hidden on PS</dt><dd>28</dd></div>
+  </dl>
+  <div class="progress-wrap" id="progressWrap" aria-label="Overall progress">
+    <div class="progress-line"><span id="progressText">0 of 55 earned</span><span id="progressPct">0%</span></div>
+    <div class="bar"><div class="bar-fill" id="progressFill" style="width:0%"></div></div>
+  </div>
+  <p class="prelaunch">The game had not launched when this guide was written. Steps that go beyond the official trophy description are labelled as predictions, and every guide names its sources.</p>
 </header>
-<div class="controls">
-  <label>Grade <select id="grade"><option value="all">All</option><option value="platinum">Platinum</option><option value="gold">Gold</option><option value="silver">Silver</option><option value="bronze">Bronze</option></select></label>
-  <button id="export" type="button">Export progress</button>
-  <label class="import">Import progress <input id="import" type="file" accept="application/json"></label>
-</div>
-<table>
-  <thead><tr><th>Earned</th><th>Trophy</th><th>Grade</th><th>How to get it</th></tr></thead>
-  <tbody id="rows"></tbody>
-</table>
-<script type="module" src="app.js"></script>
+
+<main>
+  <section class="card warn" id="missableBanner" aria-label="Missable trophy warning">
+    <h2>One trophy can be missed</h2>
+    <p><strong>Positive Mental Attitude</strong> is the list&rsquo;s only potentially missable trophy: guides report the first meditation spot — Lucia on a balcony at home in Chapter 1 — becomes permanently unavailable after that chapter, and there is no mission replay. Do it before Chapter 1 ends, and keep a manual save at the start of every chapter. Sources: <a href="https://gta-zone.com/news/gta-6-trophies-achievements/">GTA Zone</a>, <a href="https://outputlag.com/guides/gta-6-trophy-list/">Output Lag</a>.</p>
+  </section>
+
+  <section class="card" id="roadmap" aria-label="Roadmap to the platinum">
+    <h2>Roadmap to the platinum</h2>
+    <p class="muted">Built from the official descriptions: story chapters and missions first, then side strands and activities, then collectibles and cleanup. The platinum, <strong>Vice Got a Price!</strong>, unlocks when the other 54 are earned.</p>
+    <ol class="stages">
+      <li>
+        <h3>Stage 1 — Play the story</h3>
+        <p>Chapters 1–4 and the final mission, plus the named missions (Gone Fishing, Breakfast Run, The Cartel Heist, Child&rsquo;s Play, Headliners, VCIA Takedown, Operation Savage Glory). <em>Before Chapter 1 ends:</em> do Lucia&rsquo;s balcony meditation (Positive Mental Attitude). Keep a manual save at the start of every chapter and one before the final mission.</p>
+        <p class="stage-count" data-stage="story"></p>
+      </li>
+      <li>
+        <h3>Stage 2 — Character strands &amp; strangers</h3>
+        <p>Finish the final mission for Andy, Kenton, Billy, Randy and Tyrone, complete 8 Strangers &amp; Freaks strands, and hunt the unique animal for Bret. These unlock alongside the story, so clear them as they appear.</p>
+        <p class="stage-count" data-stage="strands"></p>
+      </li>
+      <li>
+        <h3>Stage 3 — Activities &amp; the big counts</h3>
+        <p>250 stunts, 42 Shooting Range gold medals, 14 Top Fun drone-race wins, 20 race wins, 50 challenges, 5 bank vaults, $250,000 of laundered Marked Bills and $100,000 spent. Try every activity type once for Master of None along the way.</p>
+        <p class="stage-count" data-stage="activities"></p>
+      </li>
+      <li>
+        <h3>Stage 4 — Collectibles &amp; cleanup</h3>
+        <p>100 WAiNK locations, 18 meditation spots, 3 collectible card sets, 100 vehicles discovered, every area of Leonida explored, all garage properties bought, 10 vehicles registered to Scooter Bros. Then check the 100% completion list — A Long Road is the last gold before the platinum.</p>
+        <p class="stage-count" data-stage="collectibles"></p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="card controls" aria-label="Tracker controls">
+    <div class="controls-row">
+      <label class="search">Search
+        <input type="search" id="searchBox" placeholder="Search a trophy name or description…" autocomplete="off">
+      </label>
+      <label class="sort">Sort
+        <select id="sortBox">
+          <option value="official">Official order</option>
+          <option value="grade">Grade (Platinum first)</option>
+          <option value="name">Name A–Z</option>
+        </select>
+      </label>
+    </div>
+    <div class="filters" id="filters" role="group" aria-label="Filter by kind">
+      <button type="button" data-filter="all" class="chip active">All <span class="n" data-count="all"></span></button>
+      <button type="button" data-filter="story" class="chip">Story <span class="n" data-count="story"></span></button>
+      <button type="button" data-filter="missable" class="chip">Missable <span class="n" data-count="missable"></span></button>
+      <button type="button" data-filter="collectibles" class="chip">Collectibles <span class="n" data-count="collectibles"></span></button>
+      <button type="button" data-filter="activities" class="chip">Activities <span class="n" data-count="activities"></span></button>
+      <button type="button" data-filter="online" class="chip">Online <span class="n" data-count="online"></span></button>
+    </div>
+    <div class="toggles">
+      <label class="toggle"><input type="checkbox" id="spoilerToggle"> <span><strong>Spoiler-free mode</strong> — hide the names and descriptions of story trophies you have not earned yet</span></label>
+      <label class="toggle"><input type="checkbox" id="earnedOnlyToggle"> <span>Show earned only</span></label>
+      <label class="toggle"><input type="checkbox" id="unearnedOnlyToggle"> <span>Show unearned only</span></label>
+    </div>
+    <p class="filter-note" id="filterNote" hidden></p>
+    <div class="io-row">
+      <button type="button" id="exportBtn">Export progress (.json)</button>
+      <button type="button" id="importBtn">Import progress…</button>
+      <input type="file" id="importFile" accept=".json,application/json" hidden>
+      <button type="button" id="resetBtn" class="danger">Reset progress</button>
+      <span class="io-status" id="ioStatus" role="status"></span>
+    </div>
+    <p class="muted small">Progress is saved in this browser (localStorage) as you tick trophies. Export downloads a file you can keep or move to another browser; import reads it back.</p>
+  </section>
+
+  <section aria-label="Trophy checklist">
+    <p class="list-meta" id="listMeta">Loading the 55 trophies…</p>
+    <ul class="trophy-list" id="trophyList"></ul>
+    <p class="empty" id="emptyState" hidden>No trophies match this filter. The official list holds no online trophies — every one of the 55 is earned in single-player.</p>
+  </section>
+</main>
+
+<footer>
+  <p><strong>Sources &amp; method.</strong> Trophy names, descriptions and grades are the official PlayStation text, as listed by Exophase and PSNProfiles in November 2026 (cross-checked at <a href="https://www.planetgta6.com/en/gta-6-trophies/">Planet GTA 6</a> and <a href="https://gta-zone.com/news/gta-6-trophies-achievements/">GTA Zone</a>). Every guide is written for this entry, in its own words, and names its sources beside it. Counts and warnings that go beyond the official descriptions — 42 Shooting Range challenges, 14 drone-race locations, 18 meditation spots, the Chapter 1 missable — come from the guide sources named on each trophy, chiefly PowerPyx via GTA Zone and Output Lag, and are labelled as predictions where the game had not yet launched.</p>
+  <p><strong>Offline.</strong> This guide is static files only. It loads nothing from the network and makes no network requests at run time; it works with the network off.</p>
+  <p class="small muted">An unofficial fan guide. Grand Theft Auto and GTA are trademarks of Take-Two Interactive; this guide is not affiliated with or endorsed by Rockstar Games or Take-Two. No official artwork, logos or screenshots are used.</p>
+</footer>
+
+<script src="app.js"></script>
 </body>
 </html>
